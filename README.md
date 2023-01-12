@@ -1,5 +1,13 @@
 # vizor README
 
+## 설치
+
+1. 하위 폴더를 포함하여 파일들을 내려받는다.
+2. 터미널을 열고 다음과 같이 입력한다.
+   ```
+   C:\>code.cmd --install-extension vizor-0.0.1.vsix
+   ```
+
 ## TeX 파일 열기
 
 1. `\include{foo}` 또는 `\input{foo}`에서 `foo`를 선택한다.
