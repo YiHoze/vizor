@@ -22,7 +22,7 @@ LaTeX Workshop 확장 프로그램이, PDF 뷰어를 포함하고 있기 때문�
 1. 명령 팔레트를 열고 `Vizor: Open Image` 명령을 내리거나 **Alt+Shift+J**를 누른다.
 
 `vizor.imagePath` 설정 옵션에 지정된 경로들에서 차례로 파일을 찾고, 발견되면 열린다.
-확장자가 명시되어 있지 않으면 foo.png, foo.pdf, foo.jpg를 차례로 찾는다.
+확장자가 명시되어 있지 않으면 `vizor.imageType` 설정 옵션에 지정된 확장자들을 적용하여 파일들을 찾는다. 이를테면 foo.png, foo.pdf, foo.jpg를 차례로 찾는다.
 
 
 다음은 또 다른 방법이다.
