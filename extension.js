@@ -47,7 +47,6 @@ function activate(context) {
 		if (!editor) { return; }
 
 		var currentFolder = path.dirname(vscode.window.activeTextEditor.document.uri.fsPath);
-		// const fileExtensions = [".png", ".pdf", ".jpg"];
 		var fileName = '';
 		var tmpName = '';
 		var targetPath = '';

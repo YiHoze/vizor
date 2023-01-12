@@ -3,7 +3,7 @@
 	"displayName": "Vizor",
 	"description": "Open files contained in a TeX document.",
 	"version": "0.0.1",
-	"publisher": "YI Hoze",
+	"publisher": "yihoze",
 	"engines": {
 		"vscode": "^1.74.0"
 	},
@@ -77,6 +77,6 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/YiHoze/visor.git"
+		"url": "https://github.com/YiHoze/vizor.git"
   	}
 }
