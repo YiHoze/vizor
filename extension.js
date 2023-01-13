@@ -7,39 +7,34 @@ const fs = require('fs');
  */
 function activate(context) {
 
-	// 	vscode.window.showInformationMessage('');
-	const texOpener = "vizor.openTex";
-	const texHandler = async () => {
-		var editor = vscode.window.activeTextEditor;
-		if (!editor) { return; }
+	// // 	vscode.window.showInformationMessage('');
+	// const texOpener = "vizor.openTex";
+	// const texHandler = async () => {
+	// 	var editor = vscode.window.activeTextEditor;
+	// 	if (!editor) { return; }
 
-		var currentFolder = path.dirname(vscode.window.activeTextEditor.document.uri.fsPath);
-		var fileName = '';
-		var targetPath = '';
-		var msg = '';
+	// 	var currentFolder = path.dirname(vscode.window.activeTextEditor.document.uri.fsPath);
+	// 	var fileName = '';
+	// 	var targetPath = '';
 
-		var selection = editor.selection;
-		// parse the current line if no text is selected 
-		if (selection.isEmpty) {
-			fileName = await parseForTex(editor, selection);
-			if (!fileName) { return; }
-		} else {
-			fileName = editor.document.getText(selection);
-		}
-		// add .tex to the filename if it has no extension
-		if (path.extname(fileName) === '') {
-			fileName = fileName + '.tex';
-		}
-		// open the file if it exists
-		targetPath = path.join(currentFolder, fileName);
-		if (fs.existsSync(targetPath)) {
-			vscode.commands.executeCommand("vscode.open", vscode.Uri.file(targetPath));
-		} else {
-			msg = targetPath + ' is not found.';
-			vscode.window.showInformationMessage(msg);
-		}
-
-	};
+	// 	var selection = editor.selection;
+	// 	// parse the current line if no text is selected 
+	// 	if (selection.isEmpty) {
+	// 		fileName = await parseForTex(editor, selection);
+	// 		if (!fileName) { return; }
+	// 	} else {
+	// 		fileName = editor.document.getText(selection);
+	// 	}
+	// 	// add .tex to the filename if it has no extension
+	// 	if (path.extname(fileName) === '') {
+	// 		fileName = fileName + '.tex';
+	// 	}
+	// 	// open the file if it exists
+	// 	targetPath = path.join(currentFolder, fileName);
+	// 	if (fs.existsSync(targetPath)) {
+	// 		vscode.commands.executeCommand("vscode.open", vscode.Uri.file(targetPath));
+	// 	}
+	// };
 
 	const imageOpener = "vizor.openImage";
 	const imageHandler = async () => {
@@ -50,7 +45,6 @@ function activate(context) {
 		var fileName = '';
 		var tmpName = '';
 		var targetPath = '';
-		var msg = '';
 
 		// get paths corresponding to \graphicspath from the settings
 		const vizor = vscode.workspace.getConfiguration('vizor');
@@ -66,7 +60,7 @@ function activate(context) {
 			fileName = editor.document.getText(selection);
 		}
 
-		// add an extension such .png to the filename by turns if it has no extension
+		// add an extension such as .png to the filename by turns if it has no extension
 		if (path.extname(fileName) === '') {
 			for (let i=0; i<imageType.length; i++) {
 				tmpName = fileName + imageType[i];
@@ -77,15 +71,12 @@ function activate(context) {
 			targetPath = findImage(currentFolder, imagePath, fileName);
 		}
 		
-		if (targetPath.isEmpty) {
-			msg = fileName + " is not found.";
-			vscode.window.showInformationMessage(msg);
-		} else {
+		if (!targetPath.isEmpty) {
 			vscode.commands.executeCommand("vscode.open", vscode.Uri.file(targetPath));			
 		}
 	};
 
-	context.subscriptions.push(vscode.commands.registerCommand(texOpener, texHandler));
+	// context.subscriptions.push(vscode.commands.registerCommand(texOpener, texHandler));
 	context.subscriptions.push(vscode.commands.registerCommand(imageOpener, imageHandler));
 }
 

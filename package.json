@@ -4,6 +4,12 @@
 	"description": "Open files contained in a TeX document.",
 	"version": "0.0.1",
 	"publisher": "yihoze",
+	"license": "MIT",
+	"homepage": "https://github.com/YiHoze/vizor",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/YiHoze/vizor.git"
+  	},
 	"engines": {
 		"vscode": "^1.74.0"
 	},
@@ -11,16 +17,11 @@
 		"Other"
 	],
 	"activationEvents": [
-		"onCommand:vizor.openTex",
 		"onCommand:vizor.openImage"
 	],
 	"main": "./extension.js",
 	"contributes": {
 		"commands": [
-			{
-				"command": "vizor.openTex",
-				"title": "Vizor: Open TeX"
-			},
 			{
 				"command": "vizor.openImage",
 				"title": "Vizor: Open Image"
@@ -28,13 +29,8 @@
 		],
 		"keybindings": [
 			{
-				"command": "vizor.openTex",
-				"key": "alt+j",
-				"when": "editorTextFocus"
-			},
-			{
 				"command": "vizor.openImage",
-				"key": "alt+shift+j",
+				"key": "alt+v",
 				"when": "editorTextFocus"
 			}
 		],
@@ -74,9 +70,5 @@
 		"mocha": "^10.1.0",
 		"typescript": "^4.9.3",
 		"@vscode/test-electron": "^2.2.0"
-	},
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/YiHoze/vizor.git"
-  	}
+	}
 }
