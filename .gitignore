@@ -1,7 +1,5 @@
+
 .vscode/
-test/
-.eslintrc.json
+node_modules/
 .vscodeignore
-jsconfig.json
-package-lock.json
 vsc-extension-quickstart.md
