@@ -1,5 +1,5 @@
 # Change Log
 
-## Unreleased
-
-- 2023-01-11
+* 2023-01-13
+  - vizor.openTex removed
+  - icon added
