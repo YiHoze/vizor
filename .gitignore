@@ -1,0 +1,7 @@
+.vscode/
+test/
+.eslintrc.json
+.vscodeignore
+jsconfig.json
+package-lock.json
+vsc-extension-quickstart.md
