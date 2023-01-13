@@ -1,7 +1,8 @@
 {
 	"name": "vizor",
 	"displayName": "Vizor",
-	"description": "Open files contained in a TeX document.",
+	"description": "VS Code extension to open image files which are arguments of \\includegraphics and suchlike.",
+	"icon": "icon.png",
 	"version": "0.0.1",
 	"publisher": "yihoze",
 	"license": "MIT",
