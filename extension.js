@@ -1,40 +1,12 @@
 const vscode = require('vscode');
 const path = require('path');
 const fs = require('fs');
+const process = require('child_process');
 
 /**
  * @param {vscode.ExtensionContext} context
  */
 function activate(context) {
-
-	// // 	vscode.window.showInformationMessage('');
-	// const texOpener = "vizor.openTex";
-	// const texHandler = async () => {
-	// 	var editor = vscode.window.activeTextEditor;
-	// 	if (!editor) { return; }
-
-	// 	var currentFolder = path.dirname(vscode.window.activeTextEditor.document.uri.fsPath);
-	// 	var fileName = '';
-	// 	var targetPath = '';
-
-	// 	var selection = editor.selection;
-	// 	// parse the current line if no text is selected 
-	// 	if (selection.isEmpty) {
-	// 		fileName = await parseForTex(editor, selection);
-	// 		if (!fileName) { return; }
-	// 	} else {
-	// 		fileName = editor.document.getText(selection);
-	// 	}
-	// 	// add .tex to the filename if it has no extension
-	// 	if (path.extname(fileName) === '') {
-	// 		fileName = fileName + '.tex';
-	// 	}
-	// 	// open the file if it exists
-	// 	targetPath = path.join(currentFolder, fileName);
-	// 	if (fs.existsSync(targetPath)) {
-	// 		vscode.commands.executeCommand("vscode.open", vscode.Uri.file(targetPath));
-	// 	}
-	// };
 
 	const imageOpener = "vizor.openImage";
 	const imageHandler = async () => {
@@ -50,6 +22,8 @@ function activate(context) {
 		const vizor = vscode.workspace.getConfiguration('vizor');
 		const imagePath = vizor.get('imagePath');
 		const imageType = vizor.get('imageType');
+		const useInternal = vizor.get('useInternalPdfViwer');
+		const pdfViewer = vizor.get('pdfViewerPath');
 
 		var selection = editor.selection;
 		// parse the current line if no text is selected
@@ -72,7 +46,12 @@ function activate(context) {
 		}
 		
 		if (!targetPath.isEmpty) {
-			vscode.commands.executeCommand("vscode.open", vscode.Uri.file(targetPath));			
+			if ((path.extname(targetPath) === '.pdf') && (!useInternal)) {
+				var cmd = pdfViewer + ' ' + targetPath;
+				process.exec(cmd);
+			} else {
+				vscode.commands.executeCommand("vscode.open", vscode.Uri.file(targetPath));
+			}
 		}
 	};
 
@@ -91,24 +70,6 @@ function findImage(currentFolder, imagePath, fileName) {
 		}
 	}
 	return false;
-}
-
-// called by texHandler
-// find texts beginning with \include or \input from the current line to get TeX filenames
-function parseForTex(editor, selection) {
-	var currLine = editor.document.lineAt(selection.active.line).text;
-	var foundFiles = currLine.match(/(?<=\\include\{).+?(?=\})|(?<=\\input\{).+?(?=\})/g);
-	if (foundFiles === null) {
-		return false;
-	} else {
-		if (foundFiles.length == 1) {
-			return foundFiles[0];
-		} else {
-			// display filenames for user to pick one when there are two or more
-			const pick = pickItem(foundFiles);
-			return pick
-		}
-	}
 }
 
 // called by imageHandler

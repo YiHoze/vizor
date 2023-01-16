@@ -3,7 +3,7 @@
 	"displayName": "Vizor",
 	"description": "VS Code extension to open image files which are arguments of \\includegraphics and suchlike.",
 	"icon": "icon.png",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"publisher": "yihoze",
 	"license": "MIT",
 	"homepage": "https://github.com/YiHoze/vizor",
@@ -37,20 +37,25 @@
 		],
 		"configuration": {
 			"title": "vizor",
-			"properties": {				
+			"properties": {
 				"vizor.imagePath": {
 					"type": "array", 
 					"default": [".", "images"],
 					"description": "Paths set to \\graphicspath"
-				},				
+				},
 				"vizor.imageType": {
 					"type": "array", 
 					"default": [".png", ".pdf", ".jpg"],
 					"description": "Extensions like those set to \\DeclareGraphicsExtensions"
-				},				
-				"vizor.PDFviewer": {
+				},
+				"vizor.useInternalPdfViwer": {
+					"type":"boolean",
+					"default": true,
+					"description": "Use LaTeX-Workshop's built-in PDF viewer to view PDF images."
+				},
+				"vizor.pdfViewerPath": {
 					"type": "string",
-					"default": "C:\\Users\\yihoze\\AppData\\Local\\SumatraPDF\\SumatraPDF.exe",
+					"default": "C:\\users\\USERNAME\\AppData\\Local\\SumatraPDF\\SumatraPDF.exe",
 					"description": "Path to a PDF viewer to view PDF images"
 				}
 			}

@@ -1,5 +1,5 @@
-
 .vscode/
+_bak/
 node_modules/
 .vscodeignore
 vsc-extension-quickstart.md
