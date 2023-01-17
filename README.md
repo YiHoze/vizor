@@ -1,5 +1,8 @@
 # vizor README
 
+
+[![Vizor](https://img.youtube.com/vi/JaO_SqTTyWw/0.jpg)](https://www.youtube.com/watch?v=JaO_SqTTyWw "Vizor")
+
 ## 설치
 
 1. 하위 폴더를 제외하고, 파일들을 내려받는다.
