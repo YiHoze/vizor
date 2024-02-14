@@ -10,20 +10,6 @@
    ```
    C:\>code.cmd --install-extension vizor-0.0.1.vsix
    ```
-
-<!-- ## TeX 파일 열기
-
-1. `\include{foo}` 또는 `\input{foo}`에서 `foo`를 선택한다.
-1. 명령 팔레트를 열고 `Vizor: Open TeX` 명령을 내리거나 **Alt+J**를 누른다. 
-   확장자가 명시되어 있지 않아도, foo.tex 파일이 존재하면 열린다. 
-
-다음은 또 다른 방법이다.
-
-1. `\include{foo}` 또는 `\input{foo}`이 있는 줄에 커서를 놓는다.
-1. 명령 팔레트를 열고 `Vizor: Open TeX` 명령을 내리거나 **Alt+J**를 누른다. 
-   현재 줄에서 발견된 파일 이름들의 목록이 창 상단에 나타난다.
-1. 파일 목록에서 하나를 선택한다. -->
-
 ## 이미지 파일 열기
 
 LaTeX-Workshop 확장 프로그램이, PDF 뷰어를 포함하고 있기 때문에, 사용되고 있다고 전제한다.
